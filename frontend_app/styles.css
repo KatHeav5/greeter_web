@@ -1,0 +1,13 @@
+body {
+    background-color: #fffde7;
+} 
+
+.topic {
+    height: 200px;
+    width: 400px;
+    background-color: #ef5350;
+    color: #FFFFFF;   
+    text-align: center; 
+    font-size:2em;
+}
+
