@@ -1,1 +1,1 @@
-# greeter_web web change
+# greeter_web desktop change
