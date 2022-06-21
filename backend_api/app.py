@@ -14,7 +14,9 @@
 # pip install flask
 
 from flask import Flask, redirect
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # http get request to base path
 @app.route('/')
@@ -22,10 +24,10 @@ def hello_world():
     #return 'Hello, World!'
     return redirect('/fen/go_girl')
 
-# http get request to /fen
+# handler http get request to /fen
 @app.route('/fen')
-def fens_world():
-    return "Fen's World!"
+def fens_world():    
+    return "Fen's World from Server!"
 
 #http get request to/fen/go_girl
 @app.route('/fen/go_girl')  
