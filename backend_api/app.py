@@ -13,8 +13,12 @@
 # Install FLask with Pip (globally for now, so just once)
 # pip install flask
 
+import json
+import time
+
 from flask import Flask, redirect
 from flask_cors import CORS
+
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
@@ -33,6 +37,14 @@ def fens_world():
 @app.route('/fen/go_girl')  
 def Go_Girl():
     return "Go Girl, Go!!!"
+
+@app.route('/menu')
+def menu_items():
+    items = ["pastry", "cake", "doughnuts", "custard"];
+    items_json = json.dumps(items);
+    # simulate some throttling / delay. sleep for 10 seconds
+    time.sleep(10);        
+    return items_json
 
 # python app.py
 app.run(host='0.0.0.0', port = 7000)
