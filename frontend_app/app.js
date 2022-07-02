@@ -5,7 +5,9 @@ window.onload = function() {
     // async taken into account
     load_header_data("http://127.0.0.1:7000/fen");
 
-    load_menu_items("http://127.0.0.1:7000/menu");
+    //load_menu_items("http://127.0.0.1:7000/menu");
+
+    load_ingredients("http://127.0.0.1:7000/fen");
 }
 
 async function load_header_data(url) {
@@ -19,14 +21,28 @@ async function load_header_data(url) {
     }   
 }
 
-async function load_menu_items(url) {
+{
+//async function load_menu_items(url) {
+    //try {
+     //   document.getElementById("menu-items").textContent = "waiting for server to respond with menu items";
+      //  const resp = await fetch(url);
+      //  const menu_data = await resp.json();
+       // document.getElementById("menu-items").textContent = menu_data;
+    //} catch(err){
+       // console.error("error occurred when getting menu data");
+       // console.error(err);
+    //}   
+}
+
+{
+async function load_ingredients(url) 
     try {
-        document.getElementById("menu-items").textContent = "waiting for server to respond with menu items";
         const resp = await fetch(url);
-        const menu_data = await resp.json();
-        document.getElementById("menu-items").textContent = menu_data;
+        const ingredients_data = await resp.json();
+        document.getElementById("ingredients").textContent = ingredients_data;
     } catch(err){
-        console.error("error occurred when getting menu data");
+        console.error("error occurred when getting ingredients data");
         console.error(err);
     }   
+
 }

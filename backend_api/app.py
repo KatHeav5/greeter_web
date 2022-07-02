@@ -38,12 +38,20 @@ def fens_world():
 def Go_Girl():
     return "Go Girl, Go!!!"
 
-@app.route('/menu')
-def menu_items():
+#@app.route('/menu')
+#def menu_items():
     items = ["pastry", "cake", "doughnuts", "custard"];
     items_json = json.dumps(items);
     # simulate some throttling / delay. sleep for 10 seconds
     time.sleep(10);        
+    return items_json
+
+@app.route('/ingredients')
+def ingredients():
+    items = ["puff pastry", "custard", "chocolate chips", "eggs"];
+    items_json = json.dumps(items);
+    # simulate some throttling / delay. sleep for 10 seconds
+    time.sleep(5);        
     return items_json
 
 # python app.py
