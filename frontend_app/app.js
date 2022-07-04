@@ -7,7 +7,7 @@ window.onload = function() {
 
     //load_menu_items("http://127.0.0.1:7000/menu");
 
-    load_ingredients("http://127.0.0.1:7000/fen");
+    load_ingredients("http://127.0.0.1:7000/ingredients");
 }
 
 async function load_header_data(url) {
@@ -21,7 +21,7 @@ async function load_header_data(url) {
     }   
 }
 
-{
+//{
 //async function load_menu_items(url) {
     //try {
      //   document.getElementById("menu-items").textContent = "waiting for server to respond with menu items";
@@ -32,17 +32,16 @@ async function load_header_data(url) {
        // console.error("error occurred when getting menu data");
        // console.error(err);
     //}   
-}
+//}
 
-{
-async function load_ingredients(url) 
+
+async function load_Ingredients(url) {
     try {
         const resp = await fetch(url);
         const ingredients_data = await resp.json();
-        document.getElementById("ingredients").textContent = ingredients_data;
+        document.getElementById("Ingredients").textContent = Ingredients_data;
     } catch(err){
         console.error("error occurred when getting ingredients data");
         console.error(err);
     }   
-
 }
