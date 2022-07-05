@@ -23,6 +23,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 # http get request to base path
+# decorators for path-based routing.
 @app.route('/')
 def hello_world():
     #return 'Hello, World!'
@@ -51,9 +52,20 @@ def ingredients():
     items = ["puff pastry", "custard", "chocolate chips", "eggs"];
     items_json = json.dumps(items);
     # simulate some throttling / delay. sleep for 10 seconds
-    time.sleep(5);        
+    time.sleep(10);        
+    return items_json
+
+# Return a list of dictionary / objects
+# e.g: [ { id: 1, name: pastry }, { id: 2, name: custard }]
+@app.route('/pantry')
+def pantry():
+    items = [ { "id": 1, "name": "pastry"  },
+              { "id": 2, "name": "custard" } 
+            ]
+    items_json = json.dumps(items);
     return items_json
 
 # python app.py
+# bootstrap the app
 app.run(host='0.0.0.0', port = 7000)
 
