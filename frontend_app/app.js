@@ -26,12 +26,36 @@ async function load_pantry_data(url) {
         const resp = await fetch(url);
         const pantry_list = await resp.json();
 
-        var ul = document.getElementById("pantry-items");
+        var article_tag = document.getElementById("pantry-items");
 
         pantry_list.forEach(item => {
-            var li = document.createElement("li");
-            li.appendChild(document.createTextNode(item["id"] + " - " + item["name"]));
-            ul.appendChild(li);
+            // Create list item tag dynamically and add text to it
+            var div_tag = document.createElement("div");
+            div_tag.className = "food-item";
+
+            var h4_tag = document.createElement("h4");
+            h4_tag.textContent = item["id"] + " - " + item["name"] 
+            + "( " + item["description"] + " )";
+            
+            // var span_tag = document.createElement("span");
+            // span_tag.textContent = item["id"] + " - " + item["name"] 
+            // + "( " + item["description"] + " )";
+           
+            // create image tag dynamically and add src and width and heigth to it.
+            var img_tag = document.createElement("img");
+            img_tag.src = item["imageUrl"];
+            img_tag.width="230"
+            img_tag.height ="173"
+
+            // append span tag and image tag children to list item tag
+            // div_tag.appendChild(span_tag);
+          
+            div_tag.appendChild(h4_tag);
+            div_tag.appendChild(img_tag);
+           
+
+            // append list item child to ul tag
+            article_tag.appendChild(div_tag);
         });   
     } catch(err){
         console.error("error occurred when getting header text");
