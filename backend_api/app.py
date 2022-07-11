@@ -59,13 +59,25 @@ def ingredients():
 # e.g: [ { id: 1, name: pastry }, { id: 2, name: custard }]
 @app.route('/pantry')
 def pantry():
-    items = [ { "id": 1, "name": "pastry"  },
-              { "id": 2, "name": "custard" } 
+    items = [ { "id": 1, "name": "pastry", "description": "just like the way mom used to make it", "imageUrl": "/assets/puff-pastry.jpg"  },
+              { "id": 2, "name": "custard", "description": "custard to light up your christmas", "imageUrl": "/assets/custard.jpg" },
+              { "id": 3, "name": "cookies", "description": "baked to perfection", "imageUrl":  "/assets/chocolate_chips.jpg" } 
             ]
     items_json = json.dumps(items);
     return items_json
 
 # python app.py
 # bootstrap the app
+
+# app.route('/puff_pastry')
+# def puff_pastry():
+#     app.get('/puff_pastry/:file(*)', (req,res) => {
+#         let file = req.params.file;
+#         let filelocation = path.join('./assets/puff-pastry.jpg', file)
+#         #res.send({image: filelocation});
+#         res.senfile('${filelocation}')
+
+#     })
+#     return "get image"
 app.run(host='0.0.0.0', port = 7000)
 
